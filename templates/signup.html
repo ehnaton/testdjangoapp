@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block jumbotron %}
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Check it out!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+{#        <div class="col-md-3">#}
+{#          <h2>Heading</h2>#}
+{#          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>#}
+{#          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>#}
+{#        </div>#}
+
+        <div class="col-md-3">
+            <h1>Join Now</h1>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="on0" value="Course">Course</td></tr><tr><td>
+            <select name="os0" class="form-control">
+                <option value="Basic">Basic $0.01 USD</option>
+                <option value="Basic +">Basic + $149.00 USD</option>
+                <option value="Premium">Premium $199.00 USD</option>
+            </select>
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+            ">
+                <br/>
+            <input type="submit" class="btn btn-success btn-block">
+            </form>
+        </div>
+        </div>
+
+
+
+{% endblock %}
