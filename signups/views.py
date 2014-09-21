@@ -43,7 +43,7 @@ def aboutus(request):
         locals(),
         context_instance=RequestContext(request))
 
-def createExamples(request):
+def createExamples():
     numberArrayExamples = open(os.path.join(settings.PROJECT_ROOT, "static", "static", "numArEx.txt"), 'a')
     numbersWeHave = range(0, 10)
     versionsWehave = range(1, 10)
@@ -60,10 +60,8 @@ def createExamples(request):
             eiar2.append(lineToWrite)
             numberArrayExamples.write(lineToWrite)
 
-    return render_to_response(
-            'createexamples.html',
-            locals(),
-            context_instance=RequestContext(request, eiar2))
+    return eiar2
+
 def nmp(request):
     # return_dict = {'numpy_array': np.arange(10)}
     i=img.open(os.path.join(settings.IMAGES_ROOT, 'images', "numbers", "y0.3.png"))
@@ -113,12 +111,12 @@ def nmp(request):
     ax4.imshow(iar4)
     mp.show()
 
+    ret = createExamples()
+
     return render_to_response(
         'nmp.html',
         locals(),
-        context_instance=RequestContext(request, iar2))
-
-
+        context_instance=RequestContext(request, ret))
 
 def register(request):
     return render_to_response(
