@@ -31,7 +31,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['http://ehnaton.pythonanywhere.com/']
+ALLOWED_HOSTS = []
 
 # Application definition
 
