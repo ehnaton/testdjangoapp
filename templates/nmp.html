@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Test Numpy</title>
-</head>
-<body>
-{{ result_dict }}
-</body>
-</html>
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="col-sm-12" style="text-align: center;">
+        <h3>Numpy array</h3>
+        {{ result_dict }}
+
+    </div>
+{% endblock %}
