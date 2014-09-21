@@ -99,7 +99,7 @@ def nmp(request):
     return render_to_response(
         'nmp.html',
         locals(),
-        context_instance=RequestContext(request, mp))
+        context_instance=RequestContext(request, iar2))
 
 
 
