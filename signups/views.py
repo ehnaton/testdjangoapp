@@ -1,4 +1,5 @@
 from django.conf import global_settings
+from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
@@ -40,12 +41,20 @@ def aboutus(request):
         context_instance=RequestContext(request))
 
 def nmp(request):
-    import numpy
-    result_dict = {'numpy_array': numpy.arange(10)}
+    import os
+    import numpy as np
+    from PIL import Image
+
+    # return_dict = {'numpy_array': np.arange(10)}
+
+    path = os.path.join(settings.IMAGES_ROOT, 'images', "dot.png")
+    i = Image.open(path)
+    iar = np.asarray(i)
+
     return render_to_response(
         'nmp.html',
         locals(),
-        context_instance=RequestContext(request, result_dict))
+        context_instance=RequestContext(request, iar))
 
 
 

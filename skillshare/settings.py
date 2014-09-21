@@ -76,7 +76,6 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Kiev'
-LANGUAGE_CODE = 'ua-ua'
 
 USE_I18N = True
 
@@ -98,6 +97,7 @@ if DEBUG:
     MEDIA_URL = '/media/'
     STATIC_ROOT = os.path.join(PROJECT_ROOT, "static", "static-only")
     MEDIA_ROOT = os.path.join(PROJECT_ROOT, "static", "media")
+    IMAGES_ROOT = os.path.join(PROJECT_ROOT, "static", "static", "images")
     STATICFILES_DIRS = (
         os.path.join(PROJECT_ROOT, "static", 'static'),
     )
