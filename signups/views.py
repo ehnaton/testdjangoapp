@@ -39,6 +39,15 @@ def aboutus(request):
         locals(),
         context_instance=RequestContext(request))
 
+def nmp(request):
+    import numpy
+    result_dict = {'numpy_array': numpy.arange(10)}
+    return render_to_response(
+        'nmp.html',
+        locals(),
+        context_instance=RequestContext(request, result_dict))
+
+
 
 def register(request):
     return render_to_response(

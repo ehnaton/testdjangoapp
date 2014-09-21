@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^thank-you/$', "signups.views.thankyou", name='thankyou'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^about-us/', "signups.views.aboutus", name='aboutus'),
+    url(r'^test-numpy/', "signups.views.nmp", name='nmp'),
 )
 
 if settings.DEBUG:
