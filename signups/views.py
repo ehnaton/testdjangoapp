@@ -1,4 +1,5 @@
 from __future__ import division
+import os
 from django.conf import global_settings
 from django.conf import settings
 from django.contrib import messages
@@ -6,9 +7,10 @@ from django.core.mail import send_mail
 from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
 
 from .forms import SignUpForm
-
+import numpy as np
+from PIL import Image as img
+import matplotlib.pyplot as mp
 # Create your views here.
-#from skillshare import settings
 
 def home(request):
     form = SignUpForm(request.POST or None)
@@ -41,13 +43,28 @@ def aboutus(request):
         locals(),
         context_instance=RequestContext(request))
 
+def createExamples(request):
+    numberArrayExamples = open(os.path.join(settings.PROJECT_ROOT, "static", "static", "numArEx.txt"), 'a')
+    numbersWeHave = range(0, 10)
+    versionsWehave = range(1, 10)
+    eiar2 = []
+    pathToNums = os.path.join(settings.PROJECT_ROOT, "static", "static", "images", "images", "numbers")
+    for eachNum in numbersWeHave:
+        for eachVer in versionsWehave:
+            imgFilePath = pathToNums + os.sep + str(eachNum) + '.' + str(eachVer) + '.png'
+            ei = img.open(imgFilePath)
+            eiar = np.array(ei)
+            eiar1 = str(eiar.tolist())
+
+            lineToWrite = str(eachNum) + '::' + eiar1 + '\n'
+            eiar2.append(lineToWrite)
+            numberArrayExamples.write(lineToWrite)
+
+    return render_to_response(
+            'createexamples.html',
+            locals(),
+            context_instance=RequestContext(request, eiar2))
 def nmp(request):
-
-    import os
-    import numpy as np
-    from PIL import Image as img
-    import matplotlib.pyplot as mp
-
     # return_dict = {'numpy_array': np.arange(10)}
     i=img.open(os.path.join(settings.IMAGES_ROOT, 'images', "numbers", "y0.3.png"))
     iar=np.array(i)
