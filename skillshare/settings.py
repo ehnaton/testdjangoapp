@@ -33,7 +33,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['http://ehnaton.pythonanywhere.com/']
 
-
 # Application definition
 
 INSTALLED_APPS = (
