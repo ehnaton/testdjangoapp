@@ -70,8 +70,8 @@ def nmp(request):
     iar2=np.array(i2)
     i3=img.open(os.path.join(settings.IMAGES_ROOT, 'images', "numbers", "y0.5.png"))
     iar3=np.array(i3)
-    i4=img.open(os.path.join(settings.IMAGES_ROOT, 'images',  "sentdex.png"))
-    iar4=np.array(i4)
+    # i4=img.open(os.path.join(settings.IMAGES_ROOT, 'images',  "sentdex.png"))
+    # iar4=np.array(i4)
 
     def threshold(arr):
         balance = []
@@ -98,7 +98,7 @@ def nmp(request):
     threshold(iar)
     threshold(iar2)
     threshold(iar3)
-    threshold(iar4)
+    # threshold(iar4)
 
     fig=mp.figure()
     ax1=mp.subplot2grid((8,8),(0,0),rowspan= 4,colspan=4)
@@ -108,7 +108,7 @@ def nmp(request):
     ax1.imshow(iar)
     ax2.imshow(iar2)
     ax3.imshow(iar3)
-    ax4.imshow(iar4)
+    # ax4.imshow(iar4)
     mp.show()
 
     ret = createExamples()
